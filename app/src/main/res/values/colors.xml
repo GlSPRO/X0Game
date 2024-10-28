@@ -1,0 +1,11 @@
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#42AAFF</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="red">#FF033E</color>
+    <color name="dark">#4B3D3D</color>
+    <color name="gold">#FFD700</color>
+    <color name="darkGreen">#005700</color> <!-- Dark Green -->
+    <color name="lightGreen">#8BC34A</color> <!-- Light Green -->
+</resources>

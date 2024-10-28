@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/img"
+        style="@style/Img"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/moon"
+        android:tint="@color/gold"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Крестики-нолики"
+        android:textColor="@color/dark"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/statisticsTextViewPlayerVsFriend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Статистика (с другом)"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/statisticsTextViewPlayerVsBot"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/statisticsTextViewPlayerVsBot"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Статистика (с ботом)"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintStart_toEndOf="@+id/statisticsTextViewPlayerVsFriend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/statisticsTextViewPlayerVsBot">
+
+        <Button
+            android:id="@+id/resetButtonVsFriend"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Сбросить статистику (друг)"
+            app:layout_constraintTop_toTopOf="@+id/buttonContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/resetButtonVsBot"/>
+
+        <Button
+            android:id="@+id/resetButtonVsBot"
+            style="@style/CustomButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Сбросить статистику (бот)"
+            app:layout_constraintTop_toTopOf="@+id/buttonContainer"
+            app:layout_constraintStart_toEndOf="@+id/resetButtonVsFriend"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:columnCount="3"
+        android:rowCount="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/button00"
+            style="@style/TicTacToeButton"
+            android:layout_row="0"
+            android:layout_column="0" />
+
+        <Button
+            android:id="@+id/button01"
+            style="@style/TicTacToeButton" />
+
+        <Button
+            android:id="@+id/button02"
+            style="@style/TicTacToeButton" />
+
+        <Button
+            android:id="@+id/button10"
+            style="@style/TicTacToeButton" />
+
+        <Button
+            android:id="@+id/button11"
+            style="@style/TicTacToeButton" />
+
+        <Button
+            android:id="@+id/button12"
+            style="@style/TicTacToeButton" />
+
+        <Button
+            android:id="@+id/button20"
+            style="@style/TicTacToeButton" />
+
+        <Button
+            android:id="@+id/button21"
+            style="@style/TicTacToeButton" />
+
+        <Button
+            android:id="@+id/button22"
+            style="@style/TicTacToeButton" />
+    </GridLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="404dp"
+        android:layout_height="122dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout">
+
+        <RadioButton
+            android:id="@+id/radioPlayerVsPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="59dp"
+            android:layout_marginStart="130dp"
+            android:text="Играть с другом"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
+
+        <RadioButton
+            android:id="@+id/radioPlayerVsBot"
+            android:layout_width="wrap_content"
+            android:layout_height="59dp"
+            android:layout_marginStart="130dp"
+            android:text="Играть с роботом"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/radioPlayerVsPlayer"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+            app:layout_constraintVertical_bias="0.503" />
+    </RadioGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
