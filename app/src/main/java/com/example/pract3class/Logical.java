@@ -7,22 +7,19 @@ public class GameLogic {
     private char[][] board = new char[3][3];
     private char currentPlayer = 'X';
 
-    // Статистика для игры с другом
     private int playerXWinsVsPlayer = 0;
     private int playerOWinsVsPlayer = 0;
     private int drawsVsPlayer = 0;
 
-    // Статистика для игры с ботом
     private int playerXWinsVsBot = 0;
     private int playerOWinsVsBot = 0;
     private int drawsVsBot = 0;
 
-    // Флаг, указывающий, играем ли мы против бота
     private boolean isPlayerVsBot;
 
     public GameLogic() {
-        currentPlayer = 'X'; // Начинаем с игрока X
-        clearBoard(); // Инициализация доски
+        currentPlayer = 'X';
+        clearBoard();
     }
 
     public void setPlayerVsBot(boolean isPlayerVsBot) {
@@ -30,7 +27,7 @@ public class GameLogic {
     }
 
     public boolean makeMove(int row, int col) {
-        if (board[row][col] == '\0') { // Проверка на пустую ячейку
+        if (board[row][col] == '\0') {
             board[row][col] = currentPlayer;
             return true;
         }
@@ -38,7 +35,6 @@ public class GameLogic {
     }
 
     public boolean checkForWin() {
-        // Проверка всех возможных выигрышных комбинаций
         for (int i = 0; i < 3; i++) {
             if (board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer) return true;
             if (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer) return true;
@@ -53,10 +49,10 @@ public class GameLogic {
         do {
             row = random.nextInt(3);
             col = random.nextInt(3);
-        } while (board[row][col] != '\0'); // Повторяем, пока не найдем пустую ячейку
+        } while (board[row][col] != '\0');
 
-        board[row][col] = currentPlayer; // Ставим символ бота
-        return true; // Возвращаем true, так как ход был сделан
+        board[row][col] = currentPlayer;
+        return true;
     }
 
     public char getCell(int row, int col) {
@@ -98,14 +94,12 @@ public class GameLogic {
         }
     }
 
-    // Reset statistics only for friend games
     public void resetStatisticsForFriend() {
         playerXWinsVsPlayer = 0;
         playerOWinsVsPlayer = 0;
         drawsVsPlayer = 0;
     }
 
-    // Reset statistics only for bot games
     public void resetStatisticsForBot() {
         playerXWinsVsBot = 0;
         playerOWinsVsBot = 0;
@@ -113,7 +107,7 @@ public class GameLogic {
     }
 
     public void clearCell(int row, int col) {
-        board[row][col] = '\0'; // Сбрасываем состояние ячейки
+        board[row][col] = '\0';
     }
 
     public void clearBoard() {
@@ -124,7 +118,6 @@ public class GameLogic {
         }
     }
 
-    // Getters for statistics specific to friend and bot games
     public int getPlayerXWinsVsFriend() {
         return playerXWinsVsPlayer;
     }
@@ -149,7 +142,6 @@ public class GameLogic {
         return drawsVsBot;
     }
 
-    // Setter methods for statistics
     public void setPlayerXWinsVsFriend(int wins) {
         this.playerXWinsVsPlayer = wins;
     }
